@@ -3,7 +3,7 @@ import axios from 'axios'
 
 import auth from './modules/auth'
 import blog from './modules/blog'
-import shared from './shared'
+import { getters, actions, mutations, state } from './shared'
 
 export default () => {
     return new Vuex.Store({
@@ -11,11 +11,11 @@ export default () => {
             auth,
             blog
         },
-        getters: {...shared.getters},
-        mutations: {...shared.mutations},
-        state: {...shared.state},
+        getters,
+        mutations,
+        state,
         actions: {
-            ...shared.actions,
+            ...actions,
 
             async nuxtServerInit({ dispatch, commit, getters }, { req, res }) {
                 if (req.headers.cookie) {

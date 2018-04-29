@@ -12,26 +12,26 @@ const tag = require('../controllers/tag')
 const article = require('../controllers/article')
 
 router
-  .get('/user', user.getUserInfo)
-  .patch('/user', checkToken, user.patchUserInfo)
-  .post('/login', user.login)
-  .post('/logout', checkToken, user.logout)
+  .get('/auth/user', user.getUserInfo)
+  .patch('/auth/user', checkToken, user.patchUserInfo)
+  .post('/auth/login', user.login)
+  .post('/auth/logout', checkToken, user.logout)
 
 router
-  .get('/tags/:id?', tag.getTagsOrArticles)
-  .post('/tag', checkToken, tag.postTag)
-  .patch('/tag', checkToken, tag.patchTag)
-  .del('/tag/:id?', checkToken, tag.deleteTag)
+  .get('/blog/tags/:id?', tag.getTagsOrArticles)
+  .post('/blog/tag', checkToken, tag.postTag)
+  .patch('/blog/tag', checkToken, tag.patchTag)
+  .del('/blog/tag/:id?', checkToken, tag.deleteTag)
 
 router
-  .get('/search/:keyword?', article.search)
-  .get('/article/:id?', article.getArticle)
-  .get('/articles/:page?/:limit?', article.getArticles)
-  .get('/private-articles', checkToken, article.getPrivateArticles)
-  .get('/archives', article.archives)
-  .post('/article', checkToken, article.postArticle)
-  .post('/upload', checkToken, article.upload)
-  .patch('/article', checkToken, article.patchArticle)
-  .del('/article/:id?', checkToken, article.deleteArticle)
+  .get('/blog/search/:keyword?', article.search)
+  .get('/blog/article/:id?', article.getArticle)
+  .get('/blog/articles/:page?/:limit?', article.getArticles)
+  .get('/blog/private-articles', checkToken, article.getPrivateArticles)
+  .get('/blog/archives', article.archives)
+  .post('blog/article', checkToken, article.postArticle)
+  .post('/blog/upload', checkToken, article.upload)
+  .patch('/blog/article', checkToken, article.patchArticle)
+  .del('/blog/article/:id?', checkToken, article.deleteArticle)
 
 export default router

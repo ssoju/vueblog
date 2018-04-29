@@ -9,3 +9,4 @@ export default {
     mutations,
     state
 }
+export { state, actions, mutations, getters }
