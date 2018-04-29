@@ -16,14 +16,14 @@
 export default {
   async asyncData({ store, route }) {
     let id = route.params.id || ''
-    const { data } = await store.dispatch('TAGS', id)
+    const { data } = await store.dispatch('blog/TAGS', id)
     return {
       lists: data || []
     }
   },
   head() {
     return {
-      title: '标签 - ' + this.$store.state.user.nickname
+      title: '标签 - ' + this.$store.state.auth.user.nickname
     }
   }
 }

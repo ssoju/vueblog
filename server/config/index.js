@@ -24,7 +24,7 @@ export default {
     // domain: 'http://127.0.0.1:3000'
   },
   app: {
-    host: '127.0.0.1',
+    host: 'localhost',
     port: 3000,
     routerBaseApi: '/api'
   }

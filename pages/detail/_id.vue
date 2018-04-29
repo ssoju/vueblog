@@ -31,7 +31,7 @@
 export default {
   async asyncData({ store, route, error }) {
     let id = route.params.id || ''
-    const { data } = await store.dispatch('ARTICLE_DETAIL', id)
+    const { data } = await store.dispatch('blog/ARTICLE_DETAIL', id)
     if(!id) {
       error({
         message: 'This page could not be found',
@@ -45,13 +45,13 @@ export default {
   },
   head() {
     return {
-      title: `${this.article.title} - ${this.$store.state.user.nickname}`
+      title: `${this.article.title} - ${this.$store.state.auth.user.nickname}`
     }
   },
   data() {
     return {
       options: {},
-      isLogin: this.$store.state.token ? true : false
+      isLogin: this.$store.state.auth.token ? true : false
     }
   },
   mounted() {
@@ -71,7 +71,7 @@ export default {
   },
   methods: {
     del(id) {
-      this.$store.dispatch('DELETE_ARTICLE', id).then(data => {
+      this.$store.dispatch('blog/DELETE_ARTICLE', id).then(data => {
         if (data.success) {
           this.$refs.tip.openTip('삭제되었습니다.')
           this.$router.go(-1)

@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/Cellar/node/7.0.0/bin/node /usr/local/bin/yarn add
+  /usr/local/Cellar/node/7.0.0/bin/node /usr/local/bin/yarn add vur-i18n --save
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
@@ -31,6 +31,7 @@ npm manifest:
       "@koa/cors": "^2.2.1",
       "@nuxtjs/axios": "^5.3.1",
       "@nuxtjs/pwa": "^2.0.5",
+      "axios": "^0.18.0",
       "formidable": "^1.1.1",
       "highlight.js": "^9.12.0",
       "jsonwebtoken": "^8.1.1",
@@ -46,6 +47,7 @@ npm manifest:
       "babel-preset-latest-node": "^0.4.0",
       "babel-preset-stage-3": "^6.24.1",
       "backpack-core": "^0.3.0",
+      "cross-env": "^5.0.1",
       "eslint": "^3.13.1",
       "eslint-config-standard": "^10.2.1",
       "eslint-loader": "^1.9.0",
@@ -54,7 +56,6 @@ npm manifest:
       "eslint-plugin-node": "^4.2.2",
       "eslint-plugin-promise": "^3.4.0",
       "eslint-plugin-standard": "^3.0.1",
-      "cross-env": "^5.0.1",
       "koa": "^2.4.1",
       "koa-bodyparser": "^4.2.0",
       "koa-router": "^7.3.0",
@@ -8198,14 +8199,11 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  Error: Missing list of packages to add to your project.
+  Error: Couldn't find package "vur-i18n" on the "npm" registry.
       at new MessageError (/usr/local/lib/node_modules/yarn/lib/cli.js:186:110)
-      at Object.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:40587:13)
+      at NpmResolver.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:51625:15)
       at Generator.next (<anonymous>)
       at step (/usr/local/lib/node_modules/yarn/lib/cli.js:98:30)
-      at /usr/local/lib/node_modules/yarn/lib/cli.js:116:14
-      at new Promise (<anonymous>)
-      at new F (/usr/local/lib/node_modules/yarn/lib/cli.js:23451:28)
-      at Object.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:95:12)
-      at Object.run (/usr/local/lib/node_modules/yarn/lib/cli.js:40599:19)
-      at run (/usr/local/lib/node_modules/yarn/lib/cli.js:89113:20)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:109:13
+      at <anonymous>
+      at process._tickCallback (internal/process/next_tick.js:118:7)

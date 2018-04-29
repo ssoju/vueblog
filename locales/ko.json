@@ -1,0 +1,16 @@
+{
+  "links": {
+    "home": "홈",
+    "about": "어바웃",
+    "english": "영어버전",
+    "korean": "한글 버전"
+  },
+  "home": {
+    "title": "환영합니다.",
+    "introduction": "한글 소개 페이지입니다."
+  },
+  "about": {
+    "title": "어바웃",
+    "introduction": "어바웃 소개 페이지입니다."
+  }
+}

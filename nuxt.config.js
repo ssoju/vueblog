@@ -5,7 +5,7 @@ module.exports = {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { name: 'renderer', content: 'webkit' },
-      { hid: 'description', name: 'description', content: '一个小而美的博客应用' }
+      { hid: 'description', name: 'description', content: 'vue blog' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -33,5 +33,10 @@ module.exports = {
     theme_color: '#42B983'
   },
   modules: ['@nuxtjs/pwa', '@nuxtjs/axios'],
-  plugins: ['~/plugins/components.js', '~/plugins/filters.js']
+  plugins: [
+      '~/plugins/bootloader.js',
+      '~/plugins/components.js',
+      '~/plugins/i18n.js',
+      '~/plugins/filters.js'
+  ]
 }

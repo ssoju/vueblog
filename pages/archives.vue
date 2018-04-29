@@ -14,14 +14,14 @@
 <script>
 export default {
   async asyncData({ store }) {
-    const { data } = await store.dispatch('ARCHIVES')
+    const { data } = await store.dispatch('blog/ARCHIVES')
     return {
       archives: data || []
     }
   },
   head() {
     return {
-      title: '归档 - ' + this.$store.state.user.nickname
+      title: '유저 - ' + this.$store.state.auth.user.nickname
     }
   }
 }

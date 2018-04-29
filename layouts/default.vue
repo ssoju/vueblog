@@ -9,7 +9,7 @@
             <li v-for="(nav, index) in adminNavs" :key="index" :class="{'nav-active': nav.routerName === $route.name}">
               <nuxt-link :to="nav.path">{{ nav.name }}</nuxt-link>
             </li>
-            <li><a @click="logout">退出</a></li>
+            <li><a @click="logout">로그아웃</a></li>
           </ul>
           <!-- front navs -->
           <ul class="nav-list" v-else>
@@ -94,7 +94,7 @@ export default {
       }
     },
     logout() {
-      this.$store.dispatch('LOGOUT').then(data => {
+      this.$store.dispatch('auth/LOGOUT').then(data => {
         if (data.success) {
           this.$store.state.token = ''
           this.$router.push('/')
