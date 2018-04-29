@@ -5,7 +5,7 @@
       <span>
         {{ article.createdAt | formatDate('yyyy-MM-dd') }}
         <span class="meta-division">/</span> {{ article.updatedAt | formatDate('yyyy-MM-dd') }}
-      <span class="meta-division">/</span> {{ article.views }}次浏览
+      <span class="meta-division">/</span> {{ article.views }} 읽음
       </span>
     </div>
     <div class="detail-content">
@@ -15,11 +15,11 @@
       <nuxt-link v-for="(tag, index) in article.tags" :key="index" :to="'/tags/' + tag.id">{{ tag.name }}</nuxt-link>
     </p>
     <div class="detail-copyright">
-      <p>文章采用 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">知识共享署名 4.0 国际许可协议</a> 进行许可，转载时请注明原文链接。</p>
+      <p>라이센스 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">nuxt</a> </p>
     </div>
     <div class="detail-admin" v-if="isLogin">
-      <p class="admin-del"><a @click="del(article.id)">删除</a></p>
-      <p class="admin-edit"><a @click="edit(article.id)">编辑</a></p>
+      <p class="admin-del"><a @click="del(article.id)">삭제</a></p>
+      <p class="admin-edit"><a @click="edit(article.id)">수정</a></p>
     </div>
     <no-ssr>
       <top-comments shortname="vueblog-1" :identifier="article.id"/>
@@ -73,7 +73,7 @@ export default {
     del(id) {
       this.$store.dispatch('DELETE_ARTICLE', id).then(data => {
         if (data.success) {
-          this.$refs.tip.openTip('文章已删除')
+          this.$refs.tip.openTip('삭제되었습니다.')
           this.$router.go(-1)
         }
       })

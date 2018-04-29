@@ -12,11 +12,11 @@ export default {
     secret: 'vueblog'
   },
   mongodb: {
-    host: '.mlab.com',
-    database: '',
+    host: 'ds127063.mlab.com',
+    database: 'comahead',
     port: 27063,
-    username: '',
-    password: ''
+    username: 'comahead',
+    password: 'qazx1234'
   },
   production: {
     host: '198.13.32.165',
