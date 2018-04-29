@@ -3,24 +3,22 @@
 
 ## VueBlog v2
 
-[中文文档](https://github.com/wmui/vueblog/blob/master/README.zh-cn.md)
+VueBlog是一个小而美的博客应用 [演示站](http://www.86886.wang)  
 
-VueBlog is a lightweight blog application [Live Demo](http://www.86886.wang)
+### 技术栈
 
-### Technology stack
+- 前端：Nuxt.js + Vuex
+- 后端: Mongoose + Koa
 
-- FrontEnd: Nuxt.js + Vuex
-- BackEnd: Mongoose + Koa
+### 功能特性
 
-### Features
+- 服务端渲染
+- PWA渐进式web应用
+- 基于Vue开发的轻量级Markdown编辑器
 
-- Server Side Rendering.
-- Progressive Web App.
-- A lightweight markdown editor based on Vue.js.
+### 本地运行
 
-### Build Setup
-
-First install [MongoDB](https://www.mongodb.com/download-center?jmp=nav#community) and [Node.js](https://nodejs.org/en/)
+本地安装[MongoDB](https://www.mongodb.com/download-center?jmp=nav#community)数据库和[Node.js](https://nodejs.org/en/)环境。
 
 ``` bash
 # install dependencies
@@ -36,11 +34,11 @@ npm run build
 npm start
 ```
 
-### Global config
+### 全局配置
 
-Config file is `/server/config/index.js`.
+全局配置文件`/server/config/index.js`
 
-Username is `q` ,  password is `q`.
+默认用户名：q，默认密码：q  
 
 ```javascript
 export default {
@@ -75,6 +73,6 @@ export default {
 }
 ```
 
-### License
+### 开源协议
 
-[GPL-3.0](https://choosealicense.com/licenses/gpl-3.0/)
+[GPL-3.0](https://choosealicense.com/licenses/gpl-3.0/)  
