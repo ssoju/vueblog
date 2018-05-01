@@ -17,7 +17,7 @@ async function start() {
   app.use(cors())
   app.use(bodyParser())
   app.use(KoaStatic('.'))
-  router.use('', route.routes())
+  router.use('/api', route.routes())
   app
   .use(router.routes())
   .use(router.allowedMethods())

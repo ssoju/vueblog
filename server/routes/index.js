@@ -3,35 +3,39 @@ import config from '../config'
 import db from '../models'
 import checkToken from '../middlewares/check-token'
 
-const router = new Router({
-  prefix: config.app.routerBaseApi
-})
+const router = new Router()
 
 const user = require('../controllers/user')
 const tag = require('../controllers/tag')
 const article = require('../controllers/article')
 
-router
-  .get('/auth/user', user.getUserInfo)
-  .patch('/auth/user', checkToken, user.patchUserInfo)
-  .post('/auth/login', user.login)
-  .post('/auth/logout', checkToken, user.logout)
+const auth = new Router();
 
-router
-  .get('/blog/tags/:id?', tag.getTagsOrArticles)
-  .post('/blog/tag', checkToken, tag.postTag)
-  .patch('/blog/tag', checkToken, tag.patchTag)
-  .del('/blog/tag/:id?', checkToken, tag.deleteTag)
+auth
+  .get('/user', user.getUserInfo)
+  .patch('/user', checkToken, user.patchUserInfo)
+  .post('/login', user.login)
+  .post('/logout', checkToken, user.logout)
+router.use('/auth', auth.routes())
 
-router
-  .get('/blog/search/:keyword?', article.search)
-  .get('/blog/article/:id?', article.getArticle)
-  .get('/blog/articles/:page?/:limit?', article.getArticles)
-  .get('/blog/private-articles', checkToken, article.getPrivateArticles)
-  .get('/blog/archives', article.archives)
-  .post('blog/article', checkToken, article.postArticle)
-  .post('/blog/upload', checkToken, article.upload)
-  .patch('/blog/article', checkToken, article.patchArticle)
-  .del('/blog/article/:id?', checkToken, article.deleteArticle)
+
+
+const blog = new Router();
+
+blog
+  .get('/tags/:id?', tag.getTagsOrArticles)
+  .post('/tag', checkToken, tag.postTag)
+  .patch('/tag', checkToken, tag.patchTag)
+  .del('/tag/:id?', checkToken, tag.deleteTag)
+  .get('/search/:keyword?', article.search)
+  .get('/article/:id?', article.getArticle)
+  .get('/articles/:page?/:limit?', article.getArticles)
+  .get('/private-articles', checkToken, article.getPrivateArticles)
+  .get('/archives', article.archives)
+  .post('article', checkToken, article.postArticle)
+  .post('/upload', checkToken, article.upload)
+  .patch('/article', checkToken, article.patchArticle)
+  .del('/article/:id?', checkToken, article.deleteArticle)
+router.use('/blog', blog.routes())
 
 export default router

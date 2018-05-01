@@ -37,8 +37,7 @@ export default () => {
                     commit('auth/SET_TOKEN', cookieObj.token)
                 }
 
-                const { data } = await axios.get(`${getters.baseUrl}/user`)
-                commit('auth/SET_USER', data)
+                //const { data } = await dispatch('auth/USER')
             }
         },
         strict: true,
