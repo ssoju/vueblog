@@ -1,5 +1,4 @@
 import Vuex from 'vuex'
-import axios from 'axios'
 
 import auth from './modules/auth'
 import blog from './modules/blog'
@@ -17,7 +16,8 @@ export default () => {
         actions: {
             ...actions,
 
-            async nuxtServerInit({ dispatch, commit, getters }, { req, res }) {
+            /*async nuxtServerInit({ dispatch, commit, getters }, { req, res }) {
+                console.log('nuxtServerInit');
                 if (req.headers.cookie) {
                     // eg: token='asdf';id='123'
                     let cookie = req.headers.cookie
@@ -38,7 +38,7 @@ export default () => {
                 }
 
                 //const { data } = await dispatch('auth/USER')
-            }
+            }*/
         },
         strict: true,
         plugins: []

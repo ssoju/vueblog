@@ -4,7 +4,7 @@
   "description": "A blog system by Nuxt.js",
   "author": "wmui <qq22337383@gmail.com>",
   "scripts": {
-    "dev": "nodemon -w ./server -w ./start.js --exec node ./start.js",
+    "dev": "cross-env NODE_ENV=development nodemon -w ./server -w ./start.js --exec node ./start.js",
     "build": "nuxt build && backpack build",
     "start": "cross-env NODE_ENV=production node build/main.js",
     "precommit": "npm run lint",
@@ -21,7 +21,6 @@
     "jsonwebtoken": "^8.1.1",
     "markdown-it": "^8.4.0",
     "md5": "^2.2.1",
-    "mongoose": "^5.0.1",
     "nuxt": "latest",
     "source-map-support": "^0.4.15",
     "top-editor": "0.0.7",
@@ -29,7 +28,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
-    "babel-preset-latest-node": "^0.4.0",
+    "babel-preset-latest-node": "^1.0.0",
     "babel-preset-stage-3": "^6.24.1",
     "backpack-core": "^0.3.0",
     "cross-env": "^5.0.1",
@@ -46,6 +45,7 @@
     "koa-router": "^7.3.0",
     "koa-static": "^4.0.2",
     "node-sass": "^4.9.0",
+    "mongoose": "^5.0.1",
     "nodemon": "^1.17.3",
     "sass-loader": "^7.0.1",
     "scmp": "^2.0.0"
