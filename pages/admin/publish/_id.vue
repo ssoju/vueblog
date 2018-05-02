@@ -153,10 +153,10 @@
                 }
             }
         },
-        components: [
+        components: {
             TopEditor,
             TopPreview
-        ]
+        }
     }
 
 </script>

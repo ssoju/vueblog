@@ -60,8 +60,7 @@
                 })
             }
         },
-        components: [
-        ]
+        components: {}
     }
 
 </script>

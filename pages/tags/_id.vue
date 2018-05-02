@@ -23,7 +23,7 @@ export default {
   },
   head() {
     return {
-      title: '标签 - ' + this.$store.state.auth.user.nickname
+      title: '사용자 - ' + this.$store.state.auth.user.nickname
     }
   }
 }

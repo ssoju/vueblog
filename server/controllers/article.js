@@ -197,7 +197,7 @@ export const archives = async(ctx, next) => {
     if (month.length === 1) {
       month = '0' + month
     }
-    date = `${year}年${month}月`
+    date = `${year}년${month}`
     arr.push({
       date: date,
       article: articles[i]

@@ -41,8 +41,7 @@
                 this.$router.push(`/admin/publish/${id}`)
             }
         },
-        components: [
-        ]
+        components: {}
     }
 
 </script>

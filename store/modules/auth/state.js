@@ -1,4 +1,8 @@
 export default {
-    user: {},
+    user: {
+        nickname: 'unknown',
+        email: '',
+        role: 'guest'
+    },
     token: ''
 }

@@ -32,8 +32,7 @@
                 })
             }
         },
-        components: [
-        ]
+        components: {}
     }
 </script>
 

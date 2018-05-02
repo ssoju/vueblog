@@ -66,8 +66,7 @@
                 })
             }
         },
-        components: [
-        ]
+        components: {}
     }
 
 </script>
