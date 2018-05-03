@@ -15,7 +15,7 @@ export default {
         return data
     },
 
-    async USER_INFO({ commit, state, getters }) {
+    async USER({ commit, state, getters }) {
         const { data } = await axios.get('auth/user')
         commit('SET_USER', data)
         return data;

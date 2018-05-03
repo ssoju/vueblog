@@ -45,7 +45,7 @@ export default {
   },
   head() {
     return {
-      title: `${this.article.title} - ${this.$store.state.auth.user.nickname}`
+      title: `${this.article.title} - ${this.$store.getters.user.nickname}`
     }
   },
   data() {

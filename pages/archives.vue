@@ -21,7 +21,7 @@ export default {
   },
   head() {
     return {
-      title: '유저 - ' + this.$store.state.auth.user.nickname
+      title: '유저 - ' + this.$store.getters.user.nickname
     }
   }
 }

@@ -16,7 +16,7 @@ export default () => {
         actions: {
             ...actions,
 
-            /*async nuxtServerInit({ dispatch, commit, getters }, { req, res }) {
+            async nuxtServerInit({ dispatch, commit, getters }, { req, res }) {
                 console.log('nuxtServerInit');
                 if (req.headers.cookie) {
                     // eg: token='asdf';id='123'
@@ -37,8 +37,10 @@ export default () => {
                     commit('auth/SET_TOKEN', cookieObj.token)
                 }
 
-                //const { data } = await dispatch('auth/USER')
-            }*/
+                const { data }  = await dispatch('auth/USER')
+                console.log(data)
+                commit('auth/SET_USER', data)
+            }
         },
         strict: true,
         plugins: []

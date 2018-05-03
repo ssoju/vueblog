@@ -1,6 +1,6 @@
 import globalConfig from '../../server/config'
 export default {
-    baseUrl() {
+    baseUrl: state => {
         let host
         if (process.env.NODE_ENV === 'production') {
             host = globalConfig.production.domain + globalConfig.app.routerBaseApi
@@ -9,8 +9,15 @@ export default {
         }
         return host
     },
-    routerBaseApi() {
+    routerBaseApi: state => {
         let baseApi = globalConfig.app.routerBaseApi
         return baseApi
+    },
+    user: state => {
+        return state.auth.user || {
+            nickname: '',
+            email: '',
+            role: 'guest'
+        }
     }
 }
