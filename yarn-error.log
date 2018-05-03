@@ -1,17 +1,17 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\comahead\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js run build
+  /usr/local/Cellar/node/7.0.0/bin/node /usr/local/bin/yarn run build
 
 PATH: 
-  C:\Users\comahead\AppData\Local\Google\Chrome SxS\Application;C:\Users\comahead\AppData\Local\slack\app-3.1.0;C:\ProgramData\Oracle\Java\javapath;D:\oracle;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\nodejs\;D:\xampp\oracle\instantclient_12_1;C:\Program Files (x86)\VisualSVN\bin;C:\Program Files\TortoiseGit\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Users\comahead\AppData\Local\atom\bin;C:\Users\comahead\AppData\Roaming\npm;;C:\Users\comahead\AppData\Local\Programs\Fiddler;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 Yarn version: 
   1.5.1
 
 Node version: 
-  8.11.1
+  9.10.1
 
 Platform: 
-  win32 x64
+  darwin x64
 
 npm manifest: 
   {
@@ -28,21 +28,21 @@ npm manifest:
       "fix": "eslint --fix .js,.vue --ignore-path .gitignore ."
     },
     "dependencies": {
-      "@koa/cors": "^2.2.1",
-      "@nuxtjs/axios": "^5.3.1",
-      "@nuxtjs/pwa": "^2.0.5",
       "axios": "^0.18.0",
       "formidable": "^1.1.1",
       "highlight.js": "^9.12.0",
       "jsonwebtoken": "^8.1.1",
       "markdown-it": "^8.4.0",
-      "md5": "^2.2.1",
-      "nuxt": "latest",
-      "source-map-support": "^0.4.15",
       "top-editor": "0.0.7",
       "vue-i18n": "^7.6.0"
     },
     "devDependencies": {
+      "md5": "^2.2.1",
+      "nuxt": "latest",
+      "source-map-support": "^0.4.15",
+      "@koa/cors": "^2.2.1",
+      "@nuxtjs/axios": "^5.3.1",
+      "@nuxtjs/pwa": "^2.0.5",
       "babel-eslint": "^7.1.1",
       "babel-preset-latest-node": "^1.0.0",
       "babel-preset-stage-3": "^6.24.1",
@@ -7954,15 +7954,14 @@ Lockfile:
 Trace: 
   Error: Command failed.
   Exit code: 1
-  Command: C:\WINDOWS\system32\cmd.exe
-  Arguments: /d /s /c nuxt build && backpack build
-  Directory: D:\workspace\github\vueblog
+  Command: sh
+  Arguments: -c nuxt build && backpack build
+  Directory: /Users/gilbert/Development/vueblog
   Output:
   
-      at ProcessTermError.MessageError (C:\Users\comahead\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:186:110)
-      at new ProcessTermError (C:\Users\comahead\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:226:113)
-      at ChildProcess.<anonymous> (C:\Users\comahead\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:30281:17)
-      at emitTwo (events.js:126:13)
-      at ChildProcess.emit (events.js:214:7)
-      at maybeClose (internal/child_process.js:925:16)
-      at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)
+      at ProcessTermError.MessageError (/usr/local/lib/node_modules/yarn/lib/cli.js:186:110)
+      at new ProcessTermError (/usr/local/lib/node_modules/yarn/lib/cli.js:226:113)
+      at ChildProcess.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:30281:17)
+      at ChildProcess.emit (events.js:180:13)
+      at maybeClose (internal/child_process.js:936:16)
+      at Process.ChildProcess._handle.onexit (internal/child_process.js:220:5)
