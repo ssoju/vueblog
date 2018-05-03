@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\comahead\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js run dev
+  C:\Program Files\nodejs\node.exe C:\Users\comahead\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js run build
 
 PATH: 
   C:\Users\comahead\AppData\Local\Google\Chrome SxS\Application;C:\Users\comahead\AppData\Local\slack\app-3.1.0;C:\ProgramData\Oracle\Java\javapath;D:\oracle;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\nodejs\;D:\xampp\oracle\instantclient_12_1;C:\Program Files (x86)\VisualSVN\bin;C:\Program Files\TortoiseGit\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Users\comahead\AppData\Local\atom\bin;C:\Users\comahead\AppData\Roaming\npm;;C:\Users\comahead\AppData\Local\Programs\Fiddler;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps
@@ -20,7 +20,7 @@ npm manifest:
     "description": "A blog system by Nuxt.js",
     "author": "wmui <qq22337383@gmail.com>",
     "scripts": {
-      "dev": "NODE_ENV=development nodemon -w ./server -w ./start.js --exec node ./start.js",
+      "dev": "cross-env NODE_ENV=development nodemon -w ./server -w ./start.js --exec node ./start.js",
       "build": "nuxt build && backpack build",
       "start": "cross-env NODE_ENV=production node build/main.js",
       "precommit": "npm run lint",
@@ -7955,7 +7955,7 @@ Trace:
   Error: Command failed.
   Exit code: 1
   Command: C:\WINDOWS\system32\cmd.exe
-  Arguments: /d /s /c NODE_ENV=development nodemon -w ./server -w ./start.js --exec node ./start.js
+  Arguments: /d /s /c nuxt build && backpack build
   Directory: D:\workspace\github\vueblog
   Output:
   

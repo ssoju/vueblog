@@ -15,7 +15,7 @@ module.exports = {
     css: ['~assets/css/main.css', 'highlight.js/styles/github.css'],
     loading: {color: '#42B983'},
     env: {
-        HOST_URL: process.env.HOST_URL || 'http://localhost:3000'
+        HOST_URL: process.env.HOST_URL || 'http://vueblog.maru.zone'
     },
     build: {
         vendor: ['axios', 'babel-polyfill'],

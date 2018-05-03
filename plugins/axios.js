@@ -2,7 +2,7 @@ import axios from 'axios'
 import Vue from 'vue'
 
 let instance = axios.create({
-  baseURL: 'http://localhost:3000/api'
+  baseURL: 'http://vueblog.maru.zone/api'
 })
 
 if (false && process.BROWSER_BUILD) {
