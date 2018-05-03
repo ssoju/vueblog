@@ -24,8 +24,8 @@ export default {
     // domain: 'http://127.0.0.1:3000'
   },
   app: {
-    host: 'http://vueblog.maru.zone',
-    port: 80,
+    host: 'localhost',
+    port: 3000,
     routerBaseApi: '/api'
   }
 }

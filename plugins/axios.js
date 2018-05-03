@@ -1,8 +1,9 @@
 import axios from 'axios'
 import Vue from 'vue'
+import config from '../server/config'
 
 let instance = axios.create({
-  baseURL: 'http://vueblog.maru.zone/api'
+  baseURL: `http://${config.app.host}:${config.app.port}/api`
 })
 
 if (false && process.BROWSER_BUILD) {
