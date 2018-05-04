@@ -11,12 +11,18 @@ export default {
   jwt: {
     secret: 'vueblog'
   },
-  mongodb: {
-    host: 'ds127063.mlab.com',
-    database: 'comahead',
-    port: 27063,
-    username: 'comahead',
-    password: 'qazx1234'
+  mongodb: process.env.NODE_ENV === 'production' ? {
+          host: 'localhost',
+          database: 'vueblog',
+          port: 27017,
+          username: 'comahead',
+          password: 'qazx1234'
+      } : {
+      host: 'ds127063.mlab.com',
+      database: 'comahead',
+      port: 27063,
+      username: 'comahead',
+      password: 'qazx1234'
   },
   production: {
     host: '211.110.5.182',
