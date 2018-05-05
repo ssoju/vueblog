@@ -7,7 +7,7 @@
 </template>
 <script>
 export default {
-  name: 'top-tip',
+  name: 'vc-tip',
   data() {
     return {
       tip: '',

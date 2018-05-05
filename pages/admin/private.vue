@@ -10,7 +10,7 @@
                 <p class="item-edit"><a @click="edit(article.id)">수정</a></p>
             </li>
         </ul>
-        <top-tip ref="tip"/>
+        <vc-tip ref="tip"/>
     </div>
 </template>
 <script>

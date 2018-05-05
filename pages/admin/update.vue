@@ -14,7 +14,7 @@
             <input type="password" v-model="vertifyPassword" placeholder="암호 확인">
             <button @click="updatePassword">암호 수정</button>
         </div>
-        <top-tip ref="tip"/>
+        <vc-tip ref="tip"/>
     </div>
 </template>
 <script>

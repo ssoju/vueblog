@@ -35,7 +35,6 @@ module.exports = {
     modules: ['@nuxtjs/pwa', '@nuxtjs/axios'],
     plugins: [
         //'~/plugins/axios.js',
-        '~/plugins/bootloader.js',
         '~/plugins/components.js',
         '~/plugins/i18n.js',
         '~/plugins/filters.js'

@@ -14,7 +14,7 @@
                 <p class="item-edit"><a @click="editTag(tag)">编辑</a></p>
             </li>
         </ul>
-        <top-tip ref="tip"/>
+        <vc-tip ref="tip"/>
     </div>
 </template>
 <script>

@@ -1,7 +1,7 @@
 <template>
     <div>
         <template v-if="$route.params.id">
-            <top-lists :articles="articles"/>
+            <blog-lists :articles="articles"/>
         </template>
         <template v-else>
             <div class="search">
@@ -24,7 +24,7 @@
         },
         head() {
             return {
-                title: '유저 - ' + this.$store.getters.user.nickname
+                title: '유저 - ' + this.$store.state.auth.user.nickname
             }
         },
         data() {

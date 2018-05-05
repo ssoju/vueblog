@@ -3,7 +3,7 @@
         <input type="text" placeholder="아이디" autocomplete="off" v-model="user.username">
         <input type="password" placeholder="암호" autocomplete="off" v-model="user.password" @keyup.enter="login">
         <button @click="login">로그인</button>
-        <top-tip ref="tip"/>
+        <vc-tip ref="tip"/>
     </div>
 </template>
 <script>

@@ -1,10 +1,9 @@
-<!-- https://github.com/ktquez/vue-disqus -->
 <template>
     <div class="blog-comments">comments area</div>
 </template>
 <script>
     export default {
-        name: 'top-comments',
+        name: 'blog-comments',
         props: {},
         mounted() {
         },

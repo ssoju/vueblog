@@ -1,7 +1,7 @@
 <template>
   <div class="tags">
     <template v-if="$route.params.id">
-      <top-lists :articles="lists"/>
+      <blog-lists :articles="lists"/>
     </template>
     <template v-else>
       <ul class="tags-list">

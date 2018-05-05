@@ -15,16 +15,16 @@
       <nuxt-link v-for="(tag, index) in article.tags" :key="index" :to="'/tags/' + tag.id">{{ tag.name }}</nuxt-link>
     </p>
     <div class="detail-copyright">
-      <p>라이센스 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">nuxt</a> </p>
+      <p>라이센스 <a href="http://vinylc.com/" target="_blank">VCUI</a> </p>
     </div>
     <div class="detail-admin" v-if="isLogin">
       <p class="admin-del"><a @click="del(article.id)">삭제</a></p>
       <p class="admin-edit"><a @click="edit(article.id)">수정</a></p>
     </div>
     <no-ssr>
-      <top-comments shortname="vueblog-1" :identifier="article.id"/>
+      <blog-comments shortname="vueblog-1" :identifier="article.id"/>
     </no-ssr>
-    <top-tip ref="tip" />
+    <vc-tip ref="tip" />
   </div>
 </template>
 <script>
@@ -45,7 +45,7 @@ export default {
   },
   head() {
     return {
-      title: `${this.article.title} - ${this.$store.getters.user.nickname}`
+      title: `${this.article.title} - ${this.$store.state.auth.user.nickname}`
     }
   },
   data() {

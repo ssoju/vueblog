@@ -21,7 +21,7 @@
                 <a v-for="(tag,index) in tags" :key="index" @click="chooseTag(tag)">{{ tag.name }}</a>
             </div>
         </div>
-        <top-tip ref="tip"/>
+        <vc-tip ref="tip"/>
     </div>
 </template>
 <script>
@@ -53,6 +53,7 @@
             if (process.browser) {
                 this.options = {
                     linkify: true,
+                    preview: false,
                     highlight(str, lang = 'javascript') {
                         if (require('highlight.js').getLanguage(lang)) {
                             try {
@@ -136,7 +137,7 @@
                         tags: tagsID,
                         publish: isPublish,
                     }
-                    this.$store.dispatch('auth/CREATE_ARTICLE', article).then((data) => {
+                    this.$store.dispatch('blog/CREATE_ARTICLE', article).then((data) => {
                         if (data.success) {
                             this.$refs.tip.openTip('등록되었습니다.')
                             this.article.title = ''

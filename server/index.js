@@ -4,6 +4,7 @@ import path from 'path'
 import KoaStatic from 'koa-static'
 import bodyParser from 'koa-bodyparser'
 import Router from 'koa-router'
+import KoaCookie from 'koa-cookie'
 import cors from '@koa/cors'
 import globalConfig from './config'
 import route from './routes'
@@ -17,6 +18,7 @@ async function start() {
     app.use(cors())
     app.use(bodyParser())
     app.use(KoaStatic('.'))
+    app.use(KoaCookie())
     router.use('', route.routes())
     app
         .use(router.routes())

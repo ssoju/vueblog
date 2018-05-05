@@ -3,7 +3,7 @@ import path from 'path'
 import os from 'os'
 import fs from 'fs'
 import formidable from 'formidable'
-const Article = mongoose.model('Article')
+const Blog = mongoose.model('Article')
 
 export const getArticles = async(ctx, next) => {
   let { page = 1, limit = 15 } = ctx.params
@@ -11,9 +11,9 @@ export const getArticles = async(ctx, next) => {
   limit = Number(limit) || 15
 
   try {
-    let total = await Article.find({ publish: true }).exec()
+    let total = await Blog.find({ publish: true }).exec()
     total = total.length
-    const data = await Article.find({ publish: true })
+    const data = await Blog.find({ publish: true })
       .populate({
         path: 'tags',
         select: 'id name'
@@ -37,7 +37,7 @@ export const getArticles = async(ctx, next) => {
 }
 
 export const getPrivateArticles = async(ctx, next) => {
-  const data = await Article.find({ publish: false })
+  const data = await Blog.find({ publish: false })
     .populate({
       path: 'tags',
       select: 'id name'
@@ -60,13 +60,13 @@ export const getArticle = async(ctx, next) => {
   }
 
   try {
-    let article = await Article.findOne({ _id: id })
+    let article = await Blog.findOne({ _id: id })
       .populate({
         path: 'tags',
         select: 'id name'
       })
       .exec()
-    await Article.findByIdAndUpdate(id, {views: article.views + 1}).exec()
+    await Blog.findByIdAndUpdate(id, {views: article.views + 1}).exec()
     ctx.body = {
       success: true,
       data: article
@@ -91,7 +91,7 @@ export const postArticle = async(ctx, next) => {
   }
 
   try {
-    body = await new Article(body)
+    body = await new Blog(body)
     await body.save()
     // when save article, we can replace id to object
     // await body.populate('tags').execPopulate()
@@ -120,7 +120,7 @@ export const patchArticle = async(ctx, next) => {
   }
 
   try {
-    body = await Article.findByIdAndUpdate(id, body).exec()
+    body = await Blog.findByIdAndUpdate(id, body).exec()
     ctx.body = {
       success: true,
       data: body
@@ -144,7 +144,7 @@ export const deleteArticle = async(ctx, next) => {
   }
 
   try {
-    let body = await Article.findByIdAndRemove(id).exec()
+    let body = await Blog.findByIdAndRemove(id).exec()
     ctx.body = {
       success: true,
       data: body
@@ -161,7 +161,7 @@ export const search = async(ctx, next) => {
   const { keyword } = ctx.params
   const reg = new RegExp(keyword, 'i')
   try {
-    let body = await Article.find({
+    let body = await Blog.find({
       publish: true,
       $or: [{ title: { $regex: reg } }]
     })
@@ -180,7 +180,7 @@ export const search = async(ctx, next) => {
 }
 
 export const archives = async(ctx, next) => {
-  let articles = await Article.find({ publish: true })
+  let articles = await Blog.find({ publish: true })
     .populate({
       path: 'tags',
       select: 'id name'
