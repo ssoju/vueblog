@@ -1,5 +1,6 @@
 import Vuex from 'vuex'
 
+import cookie from '~/plugins/cookie'
 import auth from './modules/auth'
 import blog from './modules/blog'
 import { getters, actions, mutations, state } from './shared'
@@ -18,22 +19,15 @@ export default () => {
 
             async nuxtServerInit({ dispatch, commit, getters }, { req, res }) {
                 if (req.headers.cookie) {
-                    // eg: token='asdf';id='123'
-                    let cookie = req.headers.cookie
-                    let cookieObj = {}
-                    let cookieArr = []
-                    let key = ''
-                    let value = ''
+                    let cookieObj = cookie.parse(req.headers.cookie)
 
-                    cookie = cookie.split(';')
 
-                    for (let i = 0; i < cookie.length; i++) {
-                        cookieArr = cookie[i].split('=')
-                        key = cookieArr[0]
-                        value = cookieArr[1]
-                        cookieObj[key] = value
+                    console.log('nuxtServerInit', cookieObj)
+
+                    if (cookieObj && cookieObj.token) {
+                        console.log('!!!')
+                        commit('auth/SET_TOKEN', cookieObj.token)
                     }
-                    commit('auth/SET_TOKEN', cookieObj.token)
                 }
 
                 const { data }  = await dispatch('auth/USER')

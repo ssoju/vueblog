@@ -33,6 +33,8 @@ export default {
                 token: state.token
             }
         })
+        commit('SET_TOKEN', null)
+        commit('SET_USER', null)
         return data
     }
 }
