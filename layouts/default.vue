@@ -2,7 +2,7 @@
     <div class="blog">
         <div class="header-wraper">
             <header class="blog-header">
-                <h1 class="header-title" v-if="$store.state.user"><a href="/">{{ $store.state.user.nickname }}</a></h1>
+                <h1 class="header-title" v-if="isLogin"><a href="/">{{ user.nickname }}</a></h1>
                 <nav class="header-nav">
                     <!-- admin navs -->
                     <ul class="nav-list" v-if="/^(admin)/.test($route.name)">
@@ -11,10 +11,10 @@
                             <nuxt-link :to="nav.path">{{ nav.name }}</nuxt-link>
                         </li>
                         <li><a @click="logout">로그아웃</a></li>
-                        <li v-if="$state.store.locale === 'ko'">
+                        <li v-if="$store.state.locale === 'ko'">
                             <button type="button" @click="toggleLang('en')">en</button>
                         </li>
-                        <li v-if="$state.store.locale === 'en'">
+                        <li v-if="$store.state.locale === 'en'">
                             <button type="button" @click="toggleLang('ko')">ko</button>
                         </li>
                     </ul>
@@ -44,6 +44,8 @@
     </div>
 </template>
 <script>
+    import { mapActions, mapGetters } from 'vuex'
+
     export default {
         data() {
             return {
@@ -90,6 +92,14 @@
                         name: '관리자정보'
                     }
                 ]
+            }
+        },
+        computed: {
+            user() {
+                return this.$store.state.auth.user;
+            },
+            isLogin() {
+                return !!this.$store.state.auth.token;
             }
         },
         methods: {

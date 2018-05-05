@@ -12,12 +12,5 @@ export default {
     routerBaseApi() {
         let baseApi = '/api'
         return baseApi
-    },
-    user: state => {
-        return state.auth.user || {
-            nickname: '',
-            email: '',
-            role: 'guest'
-        }
     }
 }
