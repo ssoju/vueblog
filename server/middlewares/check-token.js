@@ -5,9 +5,7 @@ import config from '../config'
 const User = mongoose.model('User')
 
 export default async (ctx, next) => {
-    const token = ctx.cookie.token
-
-    console.log('token', token)
+    const token = ctx.cookie && ctx.cookie.token
 
     if (token) {
         const decoded = jwt.verify(token, config.jwt.secret)
@@ -15,7 +13,10 @@ export default async (ctx, next) => {
         const userID = decoded.userID
         try {
             let user = await User.findOne({_id: userID, username: username}).exec()
+
+
             if (user._id && user.username) {
+                ctx.request.user = user;
                 await next()
             } else {
                 return (ctx.body = {

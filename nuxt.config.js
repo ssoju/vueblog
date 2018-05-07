@@ -37,6 +37,7 @@ module.exports = {
         //'~/plugins/axios.js',
         '~/plugins/components.js',
         '~/plugins/i18n.js',
-        '~/plugins/filters.js'
+        '~/plugins/filters.js',
+        '~/plugins/timeago.js'
     ]
 }

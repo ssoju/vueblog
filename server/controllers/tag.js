@@ -1,6 +1,7 @@
 import mongoose from 'mongoose'
 const Tag = mongoose.model('Tag')
 const Article = mongoose.model('Article')
+
 export const getTagsOrArticles = async(ctx, next) => {
   let { id } = ctx.params, data
   if (id) {

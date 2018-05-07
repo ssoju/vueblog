@@ -92,5 +92,14 @@ export default {
     async ARCHIVES({ commit, state, getters }) {
         const { data } = await axios.get(`blog/archives`)
         return data
+    },
+
+    async CREATE_COMMENT({ commit, state, getters }, params) {
+        const { data } = await axios.post('blog/comment', params, {
+            headers: {
+                token: state.token
+            }
+        })
+        return data
     }
 }
