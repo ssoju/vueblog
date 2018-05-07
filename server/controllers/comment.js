@@ -31,6 +31,12 @@ export const postComment = async(ctx, next) => {
             }
         })
 
+
+        comment.user = {
+            nickname: 'gilbert',
+            avatar: 'gilbert.jpg'
+        }
+        
         ctx.body = {
             success: true,
             data: comment

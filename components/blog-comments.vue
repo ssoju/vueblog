@@ -18,7 +18,7 @@
         <div class="blog-comment-nonlogin" v-if="!$store.state.auth.token">
             <nuxt-link to="/login">로그인 후에 이용해 주세요.</nuxt-link>
         </div>
-        <ul class="blog-comment-list">
+        <ul class="blog-comment-list" v-if="comments.length > 0">
             <li class="blog-comment-item" v-for="comment in comments">
                 <div class="blog-comment-avatar size36x36">
                     <img :src="'/static/images/avatars/'+comment.user.avatar" class="avatar-image size36x36" :alt="comment.user.nickname">
@@ -35,6 +35,9 @@
                 </div>
             </li>
         </ul>
+        <div v-if="!comments.length" class="blog-comment-empty">
+            등록된 댓글이 없습니다.
+        </div>
     </div>
 </template>
 <script>
@@ -120,8 +123,19 @@
         font-size: 1em;
     }
 
+    .blog-comment-empty {
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+    }
+
+    .blog-comment-write {
+        margin-bottom: 30px;
+    }
+
     .blog-comment-bottom {
         padding: 5px 0;
+        height: 40px;
         button {
             color: #fff;
             background-color: #000;
@@ -136,7 +150,6 @@
     }
 
     .blog-comment-list {
-        margin-top: 30px;
         list-style: none;
     }
 
