@@ -1,8 +1,8 @@
 {
   "name": "vueblog",
-  "version": "2.3.0",
+  "version": "0.0.1",
   "description": "A blog system by Nuxt.js",
-  "author": "wmui <qq22337383@gmail.com>",
+  "author": "gilbert <comahead@gmail.com>",
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon -w ./server -w ./start.js --exec node ./start.js",
     "build": "cross-env NODE_ENV=production nuxt build && backpack build",
@@ -28,7 +28,7 @@
     "babel-preset-latest-node": "^1.0.0",
     "babel-preset-stage-3": "^6.24.1",
     "backpack-core": "^0.3.0",
-    "cross-env": "^5.0.1",
+    "cross-env": "^5.1.4",
     "eslint": "^3.13.1",
     "eslint-config-standard": "^10.2.1",
     "eslint-loader": "^1.9.0",

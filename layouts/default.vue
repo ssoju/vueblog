@@ -29,6 +29,9 @@
             </header>
         </div>
         <section class="blog-body">
+            <div class="blog-body-header">
+
+            </div>
             <nuxt/>
         </section>
         <aside class="blog-aside">
@@ -175,6 +178,12 @@
         .blog-body {
             padding-left: 15px;
             padding-right: 15px;
+            background-color: #fff;
+        }
+        .blog-body-header {
+            height: 300px;
+            margin: 0 auto;
+            background: url(/static/header.jpg) 0 -530px;
         }
         .blog-aside {
             position: fixed;

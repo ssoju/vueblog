@@ -3,9 +3,10 @@
     <ul class="list-article">
       <li class="article" v-for="(article, index) in articles" :key="article.id">
         <h2 class="article-title">
-          <nuxt-link class="title-link" :to="'/detail/' + article.id">{{ article.title }}</nuxt-link>
+          <nuxt-link class="title-link" :to="'/detail/' + article.id">{{ article.title }}</nuxt-link>&nbsp;<span class="views">({{ article.views }})</span>
         </h2>
         <p class="article-body">{{ article.content | cutString(170) }}</p>
+        <div><timeago class="timeago" :since="articles[index].createdAt"></timeago></div>
       </li>
     </ul>
   </div>
@@ -32,6 +33,9 @@ $font-color: #24292e;
   .article {
     max-width: 700px;
     margin: 60px auto;
+    border-left: 4px solid #42b983;
+    border-radius: 10px;
+    padding-left:20px;
     .article-title {
       font-size: 20px;
       font-weight: normal;
@@ -45,6 +49,16 @@ $font-color: #24292e;
     .article-body {
       margin: 10px 0;
       color: #666;
+    }
+
+    .timeago {
+      color: #a1a1a1;
+      font-size:0.7em;
+    }
+
+    .views {
+      color: #42b983;
+      font-size:0.8em;
     }
   }
 }

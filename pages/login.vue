@@ -10,7 +10,10 @@
     export default {
         data() {
             return {
-                user: {}
+                user: {
+                    username: 'axlrose',
+                    password: 'qazx1234'
+                }
             }
         },
         head() {
