@@ -24,14 +24,10 @@ async function start() {
         .use(router.routes())
         .use(router.allowedMethods())
 
-    // Import and Set Nuxt.js options
     let config = require('../nuxt.config.js')
     config.dev = !(app.env === 'production')
 
-    // Instantiate nuxt.js
     const nuxt = new Nuxt(config)
-
-    // Build in development
     if (config.dev) {
         console.log('dev mode...')
         const builder = new Builder(nuxt)
@@ -40,12 +36,11 @@ async function start() {
 
     app.use(async (ctx, next) => {
         await next()
-        ctx.status = 200 // koa defaults to 404 when it sees that status is unset
+        ctx.status = 200 
         return new Promise((resolve, reject) => {
             ctx.res.on('close', resolve)
             ctx.res.on('finish', resolve)
             nuxt.render(ctx.req, ctx.res, promise => {
-                // nuxt.render passes a rejected promise into callback on error.
                 promise.then(resolve).catch(reject)
             })
         })
@@ -59,14 +54,10 @@ start()
 
 /*
 // Start nuxt.js
-  // Import and Set Nuxt.js options
   let config = require('../nuxt.config.js')
   config.dev = !(process.env.NODE_ENV === 'production')
-  // Instanciate nuxt.js
   const nuxt = await new Nuxt(config)
-  // Add nuxt.js middleware
   app.use(nuxt.render)
-  // Build in development
   if (config.dev) {
     // console.log(config.dev)
     try {
