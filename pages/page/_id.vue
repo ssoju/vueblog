@@ -1,6 +1,6 @@
 <template>
   <div class="index">
-    <top-lists :articles="articles"/>
+    <blog-lists :articles="articles"/>
     <div class="page" v-if="maxPage > 1">
       <div class="page-prev">
         <a v-if="page > 1" @click="prevPage">« Prev </a>
@@ -15,7 +15,7 @@
 export default {
   async asyncData({store, route}) {
     let page = route.params.id || 1
-    const data  = await store.dispatch('ARTICLES', page)
+    const data  = await store.dispatch('blog/ARTICLES', page)
     return {
       articles: data.data || [],
       total: data.total

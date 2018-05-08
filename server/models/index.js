@@ -8,7 +8,7 @@ import './article'
 
 const User = mongoose.model('User')
 
-const mongoUrl = `mongodb://${config.mongodb.username}:${config.mongodb.password}@${config.mongodb.host}:${config.mongodb.port}/${config.mongodb.database}`
+const mongoUrl = `mongodb://${config.mongodb.username}:${config.mongodb.password}@${config.mongodb.host}:${config.mongodb.port}/${config.mongodb.database}?connectTimeoutMS=300000`
 mongoose.Promise = global.Promise
 mongoose.connection
   .openUri(mongoUrl)

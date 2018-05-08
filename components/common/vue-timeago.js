@@ -1,0 +1,150 @@
+const MINUTE = 60
+const HOUR = MINUTE * 60
+const DAY = HOUR * 24
+const WEEK = DAY * 7
+const MONTH = DAY * 30
+const YEAR = DAY * 365
+
+function pluralOrSingular(data, locale) {
+    if (data === 'just now') {
+        return locale
+    }
+    const count = Math.round(data)
+    if (Array.isArray(locale)) {
+        return count > 1
+            ? locale[1].replace(/%s/, count)
+            : locale[0].replace(/%s/, count)
+    }
+    return locale.replace(/%s/, count)
+}
+
+function formatTime(time) {
+    const d = new Date(time)
+    return d.toLocaleString()
+}
+
+export default function install(
+    Vue,
+    {name = 'timeago', locale = 'en-US', locales = null} = {}
+) {
+    if (!locales || Object.keys(locales).length === 0) {
+        throw new TypeError('Expected locales to have at least one locale.')
+    }
+
+    const VueTimeago = {
+        props: {
+            since: {
+                required: true
+            },
+            locale: String,
+            maxTime: Number,
+            autoUpdate: Number,
+            format: Function
+        },
+        data() {
+            return {
+                now: new Date().getTime()
+            }
+        },
+        computed: {
+            currentLocale() {
+                const current = locales[this.locale || locale]
+                if (!current) {
+                    return locales[locale]
+                }
+                return current
+            },
+            sinceTime() {
+                return new Date(this.since).getTime()
+            },
+            timeForTitle() {
+                const seconds = this.now / 1000 - this.sinceTime / 1000
+
+                if (this.maxTime && seconds > this.maxTime) {
+                    return null
+                }
+
+                return this.format
+                    ? this.format(this.sinceTime)
+                    : formatTime(this.sinceTime)
+            },
+            timeago() {
+                const seconds = this.now / 1000 - this.sinceTime / 1000
+
+                if (this.maxTime && seconds > this.maxTime) {
+                    clearInterval(this.interval)
+                    return this.format
+                        ? this.format(this.sinceTime)
+                        : formatTime(this.sinceTime)
+                }
+
+                const ret =
+                    seconds <= 5
+                        ? pluralOrSingular('just now', '방금 전') //this.currentLocale[0])
+                        : seconds < MINUTE
+                        ? pluralOrSingular(seconds, '%s초 전')// this.currentLocale[1])
+                        : seconds < HOUR
+                            ? pluralOrSingular(seconds / MINUTE, '%s분 전')// this.currentLocale[2])
+                            : seconds < DAY
+                                ? pluralOrSingular(seconds / HOUR, '%s시간 전')// this.currentLocale[3])
+                                : seconds < WEEK
+                                    ? pluralOrSingular(seconds / DAY, '%s일 전')// this.currentLocale[4])
+                                    : seconds < MONTH
+                                        ? pluralOrSingular(seconds / WEEK, '%s주 전')// this.currentLocale[5])
+                                        : seconds < YEAR
+                                            ? pluralOrSingular(
+                                                seconds / MONTH,
+                                                '%s달 전'// this.currentLocale[6]
+                                            )
+                                            : pluralOrSingular(
+                                                seconds / YEAR,
+                                                '%s년 전'// this.currentLocale[7]
+                                            )
+
+                return ret
+            }
+        },
+        mounted() {
+            if (this.autoUpdate) {
+                this.update()
+            }
+        },
+        render(h) {
+            return h(
+                'time',
+                {
+                    attrs: {
+                        datetime: new Date(this.since),
+                        title: this.timeForTitle
+                    }
+                },
+                this.timeago
+            )
+        },
+        watch: {
+            autoUpdate(newAutoUpdate) {
+                this.stopUpdate()
+                if (newAutoUpdate) {
+                    this.update()
+                }
+            }
+        },
+        methods: {
+            update() {
+                const period = this.autoUpdate * 1000
+                this.interval = setInterval(() => {
+                    this.now = new Date().getTime()
+                }, period)
+            },
+            stopUpdate() {
+                clearInterval(this.interval)
+                this.interval = null
+            }
+        },
+        beforeDestroy() {
+            this.stopUpdate()
+        }
+    }
+
+    Vue.component(name, VueTimeago)
+}
