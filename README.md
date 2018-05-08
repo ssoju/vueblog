@@ -3,7 +3,7 @@
 ### Technology stack
 
 - FrontEnd: Nuxt.js + Vuex + i18n + axios
-- BackEnd: Mongoose + Koa
+- BackEnd: MongoDB + Mongoose + Koa
 
 ### Features
 
@@ -20,12 +20,12 @@ First install [MongoDB](https://www.mongodb.com/download-center?jmp=nav#communit
 npm install # or yarn
 
 # serve in dev mode, with hot reload at localhost:3000
-npm run dev
+npm run dev # or yarn run dev
 
 # build for production
-npm run build
+npm run build  # or yarn run build
 
 # serve in production mode
-npm start
+npm start  # or yarn start
 ```
 
