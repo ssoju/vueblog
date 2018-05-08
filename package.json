@@ -1,8 +1,8 @@
 {
   "name": "vueblog",
-  "version": "0.0.1",
+  "version": "2.3.0",
   "description": "A blog system by Nuxt.js",
-  "author": "gilbert <comahead@gmail.com>",
+  "author": "wmui <qq22337383@gmail.com>",
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon -w ./server -w ./start.js --exec node ./start.js",
     "build": "cross-env NODE_ENV=production nuxt build && backpack build",
